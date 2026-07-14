@@ -7,9 +7,9 @@
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/SubsystemBase.h>
 
-class Launcher : public frc2::SubsystemBase {
+class Shooter : public frc2::SubsystemBase {
  public:
-  Launcher();
+  Shooter();
 
   /**
    * Example command factory method.
