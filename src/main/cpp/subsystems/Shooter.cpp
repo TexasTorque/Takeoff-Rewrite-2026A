@@ -14,7 +14,7 @@ frc2::CommandPtr Shooter::ExampleMethodCommand() {
   return RunOnce([/* this */] { /* one-time action goes here */ });
 }
 
-bool Shooter::ExampleCondition() {
+bool Shooter::Launching() {
   return rpm >= testRPM;
 }
 

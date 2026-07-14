@@ -22,7 +22,7 @@ class Shooter : public frc2::SubsystemBase {
    *
    * @return value of some boolean subsystem state, such as a digital sensor.
    */
-  bool ExampleCondition();
+  bool Launching();
 
   void ShooterState(double rpm, double intakeVolts, double agitatorVolts);
 
