@@ -9,6 +9,8 @@
 
 class Shooter : public frc2::SubsystemBase {
  public:
+ double shooterRPM = 0.0;
+
   Shooter();
 
   /**
@@ -42,4 +44,6 @@ class Shooter : public frc2::SubsystemBase {
   double rpm = 0.0;
   double intakeVolts = 0.0;
   double agitatorVolts = 0.0;
+  static volatile Shooter instance;
+  const double voltage;
 };
