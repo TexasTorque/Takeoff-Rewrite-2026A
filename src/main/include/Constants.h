@@ -19,3 +19,8 @@ namespace OperatorConstants {
 inline constexpr int kDriverControllerPort = 0;
 
 }  // namespace OperatorConstants
+
+namespace ShooterConstants {
+    inline constexpr int kShooterUpPort = 16;
+    inline constexpr int kShooterDownPort = 18;
+}
