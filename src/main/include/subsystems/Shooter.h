@@ -28,6 +28,8 @@ class Shooter : public frc2::SubsystemBase {
 
   void ShooterState(double rpm, double intakeVolts, double agitatorVolts);
 
+
+  frc2::CommandPtr ShooterCommand(double rpm, double intakeVolts, double agitatorVolts);
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
