@@ -4,11 +4,12 @@
 
 #pragma once
 
-#include <frc2/command/CommandPtr.h>
-#include <frc2/command/SubsystemBase.h>
-#include <Constants.h>
-#include <units/voltage.h>
-#include <units/angular_velocity.h>
+#include "frc2/command/CommandPtr.h"
+#include "frc2/command/SubsystemBase.h"
+#include "Constants.h"
+#include "units/voltage.h"
+#include "rev/SparkLowLevel.h"
+#include "rev/SparkMax.h"
 
 class Shooter : public frc2::SubsystemBase {
  public:
@@ -29,8 +30,6 @@ class Shooter : public frc2::SubsystemBase {
 
   void setShooterVoltage(units::volt_t volts);
 
-
-  frc2::CommandPtr ShooterCommand(double rpm, double intakeVolts, double agitatorVolts);
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
@@ -43,13 +42,13 @@ class Shooter : public frc2::SubsystemBase {
   void SimulationPeriodic() override;
 
  private:
-rev::spark::SparkMax m_upShooterMotor{
-  IntakeConstants::kShooterUpPort,
-  rev::spark::SparkLowLevel::MotorType::kBrushless};
+  rev::spark::SparkMax m_upShooterMotor{
+    ShooterConstants::kShooterUpPort,
+    rev::spark::SparkLowLevel::MotorType::kBrushless};
   
-rev::spark::SparkMax m_downShooterMotor{
-  IntakeConstants::kShooterDownPort,
-  rev::spark::SparkLowLevel::MotorType::kBrushless};
+  rev::spark::SparkMax m_downShooterMotor{
+    ShooterConstants::kShooterDownPort,
+    rev::spark::SparkLowLevel::MotorType::kBrushless};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };
