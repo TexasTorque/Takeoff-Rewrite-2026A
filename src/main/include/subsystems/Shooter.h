@@ -29,6 +29,8 @@ class Shooter : public frc2::SubsystemBase {
 
   void setShooterVoltage(units::volt_t volts);
 
+
+  frc2::CommandPtr ShooterCommand(double rpm, double intakeVolts, double agitatorVolts);
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */

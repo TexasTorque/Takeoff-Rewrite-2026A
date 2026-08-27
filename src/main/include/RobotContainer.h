@@ -29,7 +29,7 @@ class RobotContainer {
       OperatorConstants::kDriverControllerPort};
 
   // The robot's subsystems are defined here...
-  Shooter m_shooter;
+  ExampleSubsystem m_subsystem;
 
   void ConfigureBindings();
 };
