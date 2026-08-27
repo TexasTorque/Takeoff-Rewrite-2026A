@@ -6,8 +6,6 @@
 
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/SubsystemBase.h>
-#include <rev/SparkLowLevel.h>
-#include <rev/SparkMax.h>
 #include <Constants.h>
 #include <units/voltage.h>
 #include <units/angular_velocity.h>
@@ -19,7 +17,7 @@ class Shooter : public frc2::SubsystemBase {
   /**
    * Example command factory method.
    */
-  frc2::CommandPtr RunShootingCommand(units::revolutions_per_minute_t rpm);
+  frc2::CommandPtr RunShootingCommand();
 
   /**
    * An example method querying a boolean state of the subsystem (for example, a

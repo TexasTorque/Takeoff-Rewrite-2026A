@@ -8,6 +8,15 @@ ExampleSubsystem::ExampleSubsystem() {
   // Implementation of subsystem constructor goes here.
 }
 
+  void setShooterVoltage(units::volt_t volts) {
+    m_rollerMotor.SetVoltage(volts);
+  };
+
+  frc2::CommandPtr RunShootingCommand() {
+  return frc2::cmd::StartEnd([this] { SetShooterVoltage(7_V); },
+                             [this] { SetShooterVoltage(0_V); }, {this});
+}
+
 frc2::CommandPtr ExampleSubsystem::ExampleMethodCommand() {
   // Inline construction of command goes here.
   // Subsystem::RunOnce implicitly requires `this` subsystem.
