@@ -42,11 +42,11 @@ class Shooter : public frc2::SubsystemBase {
   void SimulationPeriodic() override;
 
  private:
-  rev::spark::SparkMax m_upShooterMotor{
+  rev::spark::SparkMax m_upShooter{
     ShooterConstants::kShooterUpPort,
     rev::spark::SparkLowLevel::MotorType::kBrushless};
   
-  rev::spark::SparkMax m_downShooterMotor{
+  rev::spark::SparkMax m_downShooter{
     ShooterConstants::kShooterDownPort,
     rev::spark::SparkLowLevel::MotorType::kBrushless};
   // Components (e.g. motor controllers and sensors) should generally be
