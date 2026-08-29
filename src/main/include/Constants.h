@@ -24,3 +24,7 @@ namespace ShooterConstants {
     inline constexpr int kShooterUpPort = 16;
     inline constexpr int kShooterDownPort = 18;
 }
+
+namespace IntakeConstants {
+    inline constexpr int kIntakeRollerPort = 24;
+}

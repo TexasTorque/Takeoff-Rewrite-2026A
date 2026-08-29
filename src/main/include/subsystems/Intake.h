@@ -11,14 +11,14 @@
 #include "rev/SparkLowLevel.h"
 #include "rev/SparkMax.h"
 
-class Shooter : public frc2::SubsystemBase {
+class Intake : public frc2::SubsystemBase {
  public:
-  Shooter();
+  Intake();
 
   /**
    * Example command factory method.
    */
-  frc2::CommandPtr RunShootingCommand();
+  frc2::CommandPtr RunIntakingCommand();
 
   /**
    * An example method querying a boolean state of the subsystem (for example, a
@@ -27,10 +27,9 @@ class Shooter : public frc2::SubsystemBase {
    * @return value of some boolean subsystem state, such as a digital sensor.
    */
 
+  void configureIntakeRollerMotor();
 
-  void setShooterVoltage(units::volt_t volts);
-
-  void configureShooterMotors();
+  void setIntakeRollerVoltage(units::volt_t volts);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -44,13 +43,10 @@ class Shooter : public frc2::SubsystemBase {
   void SimulationPeriodic() override;
 
  private:
-  rev::spark::SparkMax m_upShooterMotor{
-    ShooterConstants::kShooterUpPort,
+  rev::spark::SparkMax m_intakeRollerMotor{
+    IntakeConstants::kIntakeRollerPort,
     rev::spark::SparkLowLevel::MotorType::kBrushless};
   
-  rev::spark::SparkMax m_downShooterMotor{
-    ShooterConstants::kShooterDownPort,
-    rev::spark::SparkLowLevel::MotorType::kBrushless};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

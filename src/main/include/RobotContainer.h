@@ -9,6 +9,7 @@
 
 #include "Constants.h"
 #include "subsystems/Shooter.h"
+#include "subsystems/Intake.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -30,6 +31,7 @@ class RobotContainer {
 
   // The robot's subsystems are defined here...
   Shooter m_shooter;
+  Intake m_intake;
 
   void ConfigureBindings();
 };
