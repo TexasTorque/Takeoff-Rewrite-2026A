@@ -23,6 +23,7 @@ inline constexpr int kDriverControllerPort = 0;
 namespace ShooterConstants {
     inline constexpr int kShooterUpPort = 16;
     inline constexpr int kShooterDownPort = 18;
+    inline constexpr int kGatePort = 20;
 }
 
 namespace IntakeConstants {

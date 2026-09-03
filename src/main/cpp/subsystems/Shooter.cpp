@@ -21,6 +21,13 @@ void Shooter::configureShooterMotors() {
                           rev::PersistMode::kPersistParameters);
   m_downShooterMotor.Configure(config, rev::ResetMode::kResetSafeParameters,
                           rev::PersistMode::kPersistParameters);
+  
+  rev::spark::SparkMaxConfig config2{};
+
+  config2.SmartCurrentLimit(25);
+
+  m_gateMotor.Configure(config2, rev::ResetMode::kResetSafeParameters,
+                          rev::PersistMode::kPersistParameters);
 }
 
   void Shooter::setShooterVoltage(units::volt_t volts) {
@@ -28,9 +35,23 @@ void Shooter::configureShooterMotors() {
     m_downShooterMotor.SetVoltage(-volts);
   };
 
+  void Shooter::setGateVoltage(units::volt_t volts) {
+    m_gateMotor.SetVoltage(volts);
+  }
+
   frc2::CommandPtr Shooter::RunShootingCommand() {
+  return frc2::cmd::StartEnd([this] { setShooterVoltage(4_V); setGateVoltage(-4_V); },
+                             [this] { setShooterVoltage(0_V); setGateVoltage(0_V); }, {this});
+}
+
+  frc2::CommandPtr Shooter::StartShooterCommand() {
   return frc2::cmd::StartEnd([this] { setShooterVoltage(4_V); },
                              [this] { setShooterVoltage(0_V); }, {this});
+}
+
+frc2::CommandPtr Shooter::RunShooterIntakeCommand() {
+  return frc2::cmd::StartEnd([this] { setShooterVoltage(-2_V); setGateVoltage(4_V); },
+                             [this] { setShooterVoltage(0_V); setGateVoltage(0_V); }, {this});
 }
 
 void Shooter::Periodic() {

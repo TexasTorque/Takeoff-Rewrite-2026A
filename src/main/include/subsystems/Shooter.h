@@ -18,7 +18,11 @@ class Shooter : public frc2::SubsystemBase {
   /**
    * Example command factory method.
    */
+  frc2::CommandPtr StartShooterCommand();
+
   frc2::CommandPtr RunShootingCommand();
+
+  frc2::CommandPtr RunShooterIntakeCommand();
 
   /**
    * An example method querying a boolean state of the subsystem (for example, a
@@ -29,6 +33,8 @@ class Shooter : public frc2::SubsystemBase {
 
 
   void setShooterVoltage(units::volt_t volts);
+
+  void setGateVoltage(units::volt_t volts);
 
   void configureShooterMotors();
 
@@ -50,6 +56,10 @@ class Shooter : public frc2::SubsystemBase {
   
   rev::spark::SparkMax m_downShooterMotor{
     ShooterConstants::kShooterDownPort,
+    rev::spark::SparkLowLevel::MotorType::kBrushless};
+
+  rev::spark::SparkMax m_gateMotor{
+    ShooterConstants::kGatePort,
     rev::spark::SparkLowLevel::MotorType::kBrushless};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
