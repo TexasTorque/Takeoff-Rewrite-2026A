@@ -28,4 +28,7 @@ namespace ShooterConstants {
 
 namespace IntakeConstants {
     inline constexpr int kIntakeRollerPort = 24;
+    // inline constexpr double kIntakeUp = 30.0;
+    // inline constexpr double kIntakeDown = 0.0;
+    // inline constexpr units::volt_t kIntakeVolts = 5_V;
 }

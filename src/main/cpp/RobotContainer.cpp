@@ -21,6 +21,7 @@ void RobotContainer::ConfigureBindings() {
   m_driverController.B().ToggleOnTrue(m_shooter.StartShooterCommand());
   m_driverController.A().WhileTrue(m_shooter.RunShootingCommand());
   m_driverController.Y().WhileTrue(m_shooter.RunShooterIntakeCommand());
+  // m_driverController.RightTrigger().ToggleOnTrue(m_shooter.StartIntakeCommand());
 
   m_driverController.LeftTrigger().WhileTrue(m_intake.RunIntakingCommand());
   // m_driverController.X().WhileTrue(m_)
@@ -29,4 +30,5 @@ void RobotContainer::ConfigureBindings() {
 
 frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
   return frc2::cmd::Print("No autonomous command configured");
+
 }
