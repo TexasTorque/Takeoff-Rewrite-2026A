@@ -19,6 +19,9 @@ class Intake : public frc2::SubsystemBase {
    * Example command factory method.
    */
   frc2::CommandPtr RunIntakingCommand();
+  
+
+  frc2::CommandPtr RunIntakeCommand();
 
   /**
    * An example method querying a boolean state of the subsystem (for example, a
@@ -44,7 +47,9 @@ class Intake : public frc2::SubsystemBase {
 
  private:
   rev::spark::SparkMax m_intakeRollerMotor{
-    IntakeConstants::kIntakeRollerPort,
+
+    IntakeConstants::kIntakeRollerPort, 
+    IntakeConstants::kIntakeUp, IntakeConstants::kIntakeDown,
     rev::spark::SparkLowLevel::MotorType::kBrushless};
   
   // Components (e.g. motor controllers and sensors) should generally be
