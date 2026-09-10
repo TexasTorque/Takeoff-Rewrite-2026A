@@ -24,8 +24,8 @@ void RobotContainer::ConfigureBindings() {
   // m_driverController.RightTrigger().ToggleOnTrue(m_shooter.StartIntakeCommand());
 
   m_driverController.LeftTrigger().WhileTrue(m_intake.RunIntakingCommand());
-  // m_driverController.X().WhileTrue(m_)
-  
+  m_driverController.X().WhileTrue(m_intake.RunIntakeCommand());
+
 }
 
 frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
